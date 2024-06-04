@@ -2,11 +2,24 @@
 /// incrementação de passageiros:
 let contPass = document.getElementById("contPass");
 let contagemUsuarios = 0;
-function acrescimo() {
+
+function acrescimo(){
+    if (estaLotado()) return;
+
     contagemUsuarios = contagemUsuarios + 1; 
     contPass.innerText = contagemUsuarios;
+    
     calculoValorArrecadado();
     calculoCapacidadeTotal();
+}
+
+// diminuindo passageiros 
+function decrescimo(){
+    if (contagemUsuarios > 0){
+        contagemUsuarios--;
+        contPass.innerText = contagemUsuarios
+        calculoCapacidadeTotal();
+    }
 }
 
 //// valor arrecadado a cada parada:
@@ -18,15 +31,30 @@ function calculoValorArrecadado(){
 }
 
 ///// dedução da capacidade do ônibus
-const capacidade = 30
+const capacidade = 30;
 
 function calculoCapacidadeTotal(){
-    const capacidadeT = capacidade - contagemUsuarios
-    document.getElementById("capacidadeTotal").innerText = " A capacidade total do ônibus é de 30 passageiros, e atualmente temos: " + capacidadeT + " vagas restantes";
+    const capacidadeTotal = capacidade - contagemUsuarios;
+    document.getElementById("capacidadeTotal").innerText = " A capacidade total do ônibus é de 30 passageiros, e atualmente temos: " + capacidadeTotal + " vagas restantes";
+    return capacidadeTotal;
 }
 
-if (calculoCapacidadeTotal() == 30){
-    document.getElementById("capacidadeTotal").innerText = "estamos lotados."
-} else if (calculoCapacidadeTotal() <30 && calculoCapacidadeTotal >0){
-    document.getElementById("capacidadeTotal").innerText = " A capacidade total do ônibus é de 30 passageiros, e atualmente temos: " + capacidadeT + " vagas restantes";
+// função para ver se o ônibus está lotado 
+
+function estaLotado(){
+    const capacidadeTotal= calculoCapacidadeTotal();
+    if (capacidadeTotal <= 0){
+        document.getElementById("capacidadeTotal").innerText = "Estamos lotados.";
+        return true;
+    } else {
+        document.getElementById("capacidadeTotal").innerText = " A capacidade total do ônibus é de 30 passageiros, e atualmente temos: " + capacidadeTotal + " vagas restantes";
+        return false;
+    }
 }
+
+
+
+
+
+
+
