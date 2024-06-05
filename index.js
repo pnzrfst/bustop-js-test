@@ -16,10 +16,10 @@ function acrescimo(){
 // diminuindo passageiros 
 function decrescimo(){
     if (contagemUsuarios > 0){
-        contagemUsuarios--;
+        contagemUsuarios = contagemUsuarios - 1;
         contPass.innerText = contagemUsuarios
         calculoCapacidadeTotal();
-    }
+    } 
 }
 
 //// valor arrecadado a cada parada:
