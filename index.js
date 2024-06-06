@@ -53,6 +53,8 @@ function estaLotado(){
 }
 
 
+// arrumar a calculoValorArrecadado, atrelando ela a x que acrescentamos usuarios, sem limite de vezes;
+// arrumar 0 vagas restantes;
 
 
 
