@@ -1,32 +1,37 @@
 
-/// incrementação de passageiros:
-let contPass = document.getElementById("contadorPassageiros");
-let contagemUsuarios = 0;
+let contadorPassageiros = document.getElementById("contadorPassageiros");
+let totalPassageiros = 0;
+let valorPassagem = 4.40
+let valorArrecadado = 0;
 
 function acrescimo(){
-    if (estaLotado()) return;
+    if (estaLotado()){
+        return;
+    } 
 
-    contagemUsuarios = contagemUsuarios + 1; 
-    contPass.innerText = contagemUsuarios;
+    /// incrementação de passageiros:
+    totalPassageiros++; 
+    contadorPassageiros.innerText = totalPassageiros;
     
+    /// valor arrecadado por passageiro
+    valorArrecadado += valorPassagem;
+
     calculoValorArrecadado();
     calculoCapacidadeTotal();
 }
 
 // diminuindo passageiros 
 function decrescimo(){
-    if (contagemUsuarios > 0){
-        contagemUsuarios = contagemUsuarios - 1;
-        contPass.innerText = contagemUsuarios
+    if (totalPassageiros > 0){
+        totalPassageiros--;
+        contadorPassageiros.innerText = totalPassageiros
         calculoCapacidadeTotal();
     } 
 }
 
-//// valor arrecadado a cada parada:
-const valor = 4.40;
+// valor arrecadado: 
 
 function calculoValorArrecadado(){
-    let valorArrecadado = contagemUsuarios * valor;
     document.getElementById("valorArrecadado").innerText = "O total arrecadado é de: R$ " + valorArrecadado.toFixed(2);
 }
 
@@ -34,26 +39,22 @@ function calculoValorArrecadado(){
 const capacidade = 30;
 
 function calculoCapacidadeTotal(){
-    const capacidadeTotal = capacidade - contagemUsuarios;
-    document.getElementById("capacidadeTotal").innerText = " A capacidade total do ônibus é de 30 passageiros, e atualmente temos: " + capacidadeTotal + " vagas restantes";
-    return capacidadeTotal;
+    const vagasRestantes = capacidade - totalPassageiros;
+    document.getElementById("capacidadeTotal").innerText = " A capacidade total do ônibus é de 30 passageiros, e atualmente temos: " + vagasRestantes + " vagas restantes";
+    return vagasRestantes;
 }
 
 // função para ver se o ônibus está lotado 
 
 function estaLotado(){
-    const capacidadeTotal= calculoCapacidadeTotal();
-    if (capacidadeTotal <= 0){
+    const vagasRestantes = calculoCapacidadeTotal();
+    if (vagasRestantes <= 0){
         document.getElementById("capacidadeTotal").innerText = "Estamos lotados.";
-        return true;
-    } else {
-        document.getElementById("capacidadeTotal").innerText = " A capacidade total do ônibus é de 30 passageiros, e atualmente temos: " + capacidadeTotal + " vagas restantes";
-        return false;
+        return true
     }
 }
 
-
-// arrumar a calculoValorArrecadado, atrelando ela a x que acrescentamos usuarios, sem limite de vezes;
+// arrumar a calculoValorArrecadado, atrelando ela a x que acrescentamos usuarios, sem limite de vezes, baseado nisso continuar aumentando o valor arrecadado mesmo que a lotação maxima seja atingida
 // arrumar 0 vagas restantes;
 
 
