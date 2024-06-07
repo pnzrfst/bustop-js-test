@@ -28,6 +28,30 @@ body{
 }
 
 
+aside{
+    margin: 24px;
+    height: 220px;
+    display: flex;
+    flex-direction: row;
+    background-color: beige;
+    justify-content: space-evenly;
+}
+
+.fotoUsuario{
+    height: 180px;
+    width: 200px;
+    padding: 20px;
+    background-color: aqua;
+    align-content: center;
+}
+
+.modeloVeiculo{
+    height: 180px;
+    width: 200px;
+    padding: 20px;
+    background-color: aqua;
+    align-content: center;
+}
 
 footer{
     height: 100px;
