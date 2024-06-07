@@ -1,6 +1,6 @@
 
 /// incrementação de passageiros:
-let contPass = document.getElementById("contPass");
+let contPass = document.getElementById("contadorPassageiros");
 let contagemUsuarios = 0;
 
 function acrescimo(){
