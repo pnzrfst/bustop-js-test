@@ -1,5 +1,6 @@
 
 let contadorPassageiros = document.getElementById("contadorPassageiros");
+
 let totalPassageiros = 0;
 let valorPassagem = 4.40
 let valorArrecadado = 0;
@@ -32,7 +33,7 @@ function decrescimo(){
 // valor arrecadado: 
 
 function calculoValorArrecadado(){
-    document.getElementById("valorArrecadado").innerText = "O total arrecadado é de: R$ " + valorArrecadado.toFixed(2);
+    document.getElementById("valorArrecadado").innerText = `O total arrecadado é de: R$ ${valorArrecadado.toFixed(2)}`;
 }
 
 ///// dedução da capacidade do ônibus
@@ -40,7 +41,7 @@ const capacidade = 30;
 
 function calculoCapacidadeTotal(){
     const vagasRestantes = capacidade - totalPassageiros;
-    document.getElementById("capacidadeTotal").innerText = " A capacidade total do ônibus é de 30 passageiros, e atualmente temos: " + vagasRestantes + " vagas restantes";
+    document.getElementById("capacidadeTotal").innerText = `A capacidade total do ônibus é de 30 passageiros, e atualmente temos: ${vagasRestantes} vagas restantes`;
     return vagasRestantes;
 }
 
@@ -49,14 +50,10 @@ function calculoCapacidadeTotal(){
 function estaLotado(){
     const vagasRestantes = calculoCapacidadeTotal();
     if (vagasRestantes <= 0){
-        document.getElementById("capacidadeTotal").innerText = "Estamos lotados.";
+        document.getElementById("capacidadeTotal").innerText = `Estamos lotados.`;
         return true
     }
 }
-
-
-// arrumar a calculoValorArrecadado, atrelando ela a x que acrescentamos usuarios, sem limite de vezes, baseado nisso continuar aumentando o valor arrecadado mesmo que a lotação maxima seja atingida
-// arrumar 0 vagas restantes;
 
 
 
