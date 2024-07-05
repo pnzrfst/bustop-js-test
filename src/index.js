@@ -54,6 +54,7 @@ function estaLotado(){
     }
 }
 
+
 // arrumar a calculoValorArrecadado, atrelando ela a x que acrescentamos usuarios, sem limite de vezes, baseado nisso continuar aumentando o valor arrecadado mesmo que a lotação maxima seja atingida
 // arrumar 0 vagas restantes;
 
