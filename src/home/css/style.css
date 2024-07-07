@@ -1,0 +1,211 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poetsen One", sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root{
+    --gray: #747264;
+    --white: #FBF3D5;
+    --dark: #3C3633;
+    --orange: #EFBC9B;
+    
+}
+
+
+body{
+    color: var( --dark);
+    background-color: #FFF8F3;
+}
+
+/*estilizando a header*/
+.navegar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    box-shadow: 0 0.01rem 0.5rem #ccc;
+    width: 100%;
+    background-color: var(--white);
+    transition: all 0.5s;
+    position: fixed;
+}
+
+.navegar .logo{
+    color:var(--orange);
+    font-size: 1.7rem;
+    font-weight: 600px;
+}
+
+.logo span{
+    color: var(--dark);
+}
+
+.navegar ul{
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.navegar ul li a{
+    color: var(--dark);
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+
+
+.navegar ul li a:hover{
+    color: var(--orange);
+}
+
+.menu{
+    cursor: pointer;
+    display: none;
+}
+
+.menu .bar{
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 3px;
+    background-color:var(--orange);
+    margin: 5px auto; 
+    transition: all 0.3s;
+}
+
+.menu .bar:nth-child(1),
+.menu .bar:nth-child(3){
+    background-color: var(--gray);
+}
+
+
+/*-----------------------------------------------*/
+
+/*estilizando a main*/
+
+.homepage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 2%;
+}
+
+.homeTexto{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    max-height: 200px;
+    position: relative;
+}
+
+
+.entradaPassageiros{
+    font-size: 2rem;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+#contadorPassageiros{
+    font-size: 2rem;
+    color: var(--dark);
+    justify-content: center;
+    margin-bottom: 1rem;
+} 
+
+.contadorInfos #valorTotal{
+    background-color: var(--orange);
+    opacity: 0.9;
+    color: var(--dark);
+}
+
+
+#botaoDecresc:hover {
+    color: black;
+    background-color: #FF7F3E;
+}
+
+#botaoAcresc:hover {
+    color: black;
+    background-color: #FF7F3E;
+}
+
+
+
+#botaoAcresc{
+    background-color: var(--orange);
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 500;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+#botaoDecresc{
+    background-color: var(--orange);
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 500;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    box-shadow: 1rem;
+}
+
+.homeImagens{
+    margin-bottom: 1rem;
+}
+.onibus{
+    width: 640px;
+    height: 623px;;
+}
+ 
+/*-----------------------------------------------*/
+
+/*estilizando a aside*/
+
+
+.userCadastro{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--gray);;
+}
+
+.userCadastro .userFoto{
+    width: 40px;
+    height: 10px;
+    background-color: var(--dark);
+    border-radius: 20%;
+    padding: 10px;
+}
+
+.userCadastro .modeloOnibus{
+    width: 200px;
+    height: 190px;
+    background-color: var(--dark);
+    border-radius: 20%;
+}
