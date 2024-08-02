@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bustop! contador de passageiros</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <script src= "./home.js"></script>
+</head>
+
+
+
+<body>
+    <header>
+        <nav class= "navegar">
+            <a href="#" class = "logo">Bus<span>top!</span></a>
+            <ul class= "menuUsuario">
+                <li class="nav item"><a href="#">Pagina principal</a></li>
+                <li class="nav item"><a href="#">Viagens</a></li>
+                <li class="nav item"><a href="#">Minha conta</a></li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="homepage">
+                <div class="contadorInfos">
+                    <h1>Olá, bem vindo!</h1>
+                    <h2 id="contadorVagasRestantes"></h2>
+                    <button id="botaoAcresc" type="button" onclick="acrescimoPassageiros()">Acrescentar passageiros</button>
+                    <p>O total arrecadado é de: <span id="valorTotalArrecadado">R$ 0</span></p>
+                    <p id="capacidadeAtual">Atualmente, não temos passageiros. </p>
+                   
+                    <button id="botaoDecresc" type="button" onclick="decrescimoPassageiros()">Diminuir passageiros</button>
+
+                </div>
+            <div class = "homeImagens">
+                <img class="onibusAndando" src="./src/assets/images/pixelartbusao.gif" alt="um onibus azul." width="auto" height="300px">
+            </div>
+        </section>
+    </main>
+    <aside>
+      <section class="infosUsuario">
+            <div class="userCadastro">
+                <div class="userFoto"></div>
+                <div class="modeloOnibus"></div>
+            </div>
+      </section>
+    </aside>
+    <footer></footer>
+</body>    
+</html>
