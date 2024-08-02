@@ -1,80 +1,184 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
+
+
 *{
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
 }
 
-h1 {
-    margin-top: 10px;
-    margin-bottom: 10px;
+:root{
+    --gray: #747264;
+    --white: #FBF3D5;
+    --dark: #3C3633;
+    --orange: #EFBC9B;
+    
 }
 
-h2 {
-    font-size: 50px;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-
-
-header{
-    height: 100px;
-}
 
 body{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-    text-align: center;
+    color: var( --dark);
+    background-color: #FFF8F3;
+}
+
+/*estilizando a header*/
+.navegar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    box-shadow: 0 0.01rem 0.5rem #ccc;
+    width: 100vw;
+    background-color: var(--white);
+    transition: all 0.5s;
+    position: relative;
+}
+
+.navegar .logo{
+    color:var(--orange);
+    font-size: 1.9rem;
+    font-weight: 600px;
+}
+
+.logo span{
+    color: var(--dark);
+}
+
+.navegar ul{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.navegar ul li a{
+    color: var(--dark);
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.5s;
 }
 
 
-aside{
-    margin: 24px;
-    height: 220px;
+.navegar ul li a:hover{
+    color: var(--orange);
+}
+
+.menu{
+    cursor: pointer;
+    display: none;
+}
+
+.menu .bar{
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 3px;
+    background-color:var(--orange);
+    margin: 5px auto; 
+    transition: all 0.3s;
+}
+
+.menu .bar:nth-child(1),
+.menu .bar:nth-child(3){
+    background-color: var(--gray);
+}
+
+
+/*-----------------------------------------------*/
+
+/*estilizando a main*/
+
+.homepage{
+    margin: 4rem 1.5rem 4rem 1.5rem;
     display: flex;
     flex-direction: row;
-    background-color: beige;
     justify-content: space-evenly;
+    padding: 0px 2%;
 }
 
-.fotoUsuario{
-    height: 180px;
-    width: 200px;
-    padding: 20px;
-    background-color: aqua;
-    align-content: center;
-}
+.contadorInfos{
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(250, 252, 235);
+    padding: 18px 6px 18px 6px;
+    width: 40vw;
+    height: 400px;
 
-.modeloVeiculo{
-    height: 180px;
-    width: 200px;
-    padding: 20px;
-    background-color: aqua;
-    align-content: center;
-}
-
-footer{
-    height: 100px;
 }
 
 
-button{
+.contadorInfos h1, h2{
+    font-size: 2rem;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.contadorInfos p{
+    color: var(--dark);
+} 
+
+.contadorInfos #valorTotalArrecadado{
+    background-color: var(--orange);
+    opacity: 0.9;
+    color: var(--dark);
+    font-weight: 700;
+}
+
+
+#botaoDecresc:hover {
+    color: black;
+    background-color: #FF7F3E;
+}
+
+#botaoAcresc:hover {
+    color: black;
+    background-color: #FF7F3E;
+}
+
+
+
+#botaoAcresc, #botaoDecresc {
+    background-color: var(--orange);
     border: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: white;
-    font-weight: bold;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 500;
+    border-radius: 6px;
+    margin: 2rem;
+    cursor: pointer;
+}
+
+ 
+/*-----------------------------------------------*/
+
+/*estilizando a aside*/
+
+
+/*.userCadastro{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--gray);;
+}
+
+.userCadastro .userFoto{
+    width: 40px;
+    height: 10px;
+    background-color: var(--dark);
+    border-radius: 20%;
+    padding: 10px;
+}
+
+.userCadastro .modeloOnibus{
     width: 200px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-}
-
-
-#botaoAcresc{
-    background-color: darkred;
-}
-
-
-#botaoDecresc {
-    background-color: darkred;
-}
+    height: 190px;
+    background-color: var(--dark);
+    border-radius: 20%;
+}*/
