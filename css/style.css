@@ -1,8 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
-
-
-
 *{
     margin: 0px;
     padding: 0px;
@@ -23,6 +19,12 @@
 body{
     color: var( --dark);
     background-color: #FFF8F3;
+}
+
+
+#iconMenu{
+    display: none;
+    color: var(--orange);
 }
 
 /*estilizando a header*/
@@ -48,44 +50,23 @@ body{
     color: var(--dark);
 }
 
-.navegar ul{
+#menuUsuario{
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 3rem;
 }
 
-.navegar ul li a{
+#menuUsuario a{
     color: var(--dark);
     font-size: 17px;
     font-weight: 500;
     transition: all 0.5s;
 }
 
-
-.navegar ul li a:hover{
+#menuUsuario li a:hover{
     color: var(--orange);
 }
-
-.menu{
-    cursor: pointer;
-    display: none;
-}
-
-.menu .bar{
-    display: block;
-    width: 28px;
-    height: 3px;
-    border-radius: 3px;
-    background-color:var(--orange);
-    margin: 5px auto; 
-    transition: all 0.3s;
-}
-
-.menu .bar:nth-child(1),
-.menu .bar:nth-child(3){
-    background-color: var(--gray);
-}
-
 
 /*-----------------------------------------------*/
 
@@ -150,11 +131,6 @@ body{
     align-items: center;
     padding: 10px;
     background-color: lightblue;
-}
-@media (max-width: 768px) {
-    .infosTopo .userIcon {
-        margin: 1rem; /* Menor margem em telas menores */
-    }
 }
 
 .infosTopo .informacoes-veiculo-motorista{
@@ -271,4 +247,32 @@ th:nth-child(4), td:nth-child(4) {
 
 /*---------------------------------------------*/
 
+@media screen and (max-width: 768px) {
+    
+    .navegar{
+        display: flex;
+        flex-direction: column;
+    }
 
+    #iconMenu{
+        display: block;
+    }
+
+    #menuUsuario{
+        display: none;
+    }
+
+
+
+    #estruturaContador{
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+    .infosTopo .userIcon {
+        margin: 1rem; 
+    }
+}

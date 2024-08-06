@@ -203,3 +203,25 @@ function gerarTabela(){
 }
 
 document.getElementById('setaFimDia').addEventListener('click', gerarRelatorioFimDia);
+
+
+
+function verificarTamanhoPagina(){
+    const menuUsuario = document.getElementById('menuUsuario');
+
+    if(window.innerWidth >= 768){
+        menuUsuario.style.display = 'block';
+    }else{
+        menuUsuario.style.display = 'none'
+    }
+}
+
+function mostrarMenu(){
+    const menuUsuario = document.getElementsById('menuUsuario');
+
+    if(menuUsuario.style.display == 'block'){
+        menuUsuario.style.display = 'none';
+    }else{
+        menuUsuario.style.display = 'block';
+    }
+}
