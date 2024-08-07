@@ -207,21 +207,30 @@ document.getElementById('setaFimDia').addEventListener('click', gerarRelatorioFi
 
 
 function verificarTamanhoPagina(){
-    const menuUsuario = document.getElementById('menuUsuario');
+    const iconeMenu = document.getElementById('iconMenu');
 
     if(window.innerWidth >= 768){
-        menuUsuario.style.display = 'block';
+        iconeMenu.style.display = 'none';
+
     }else{
-        menuUsuario.style.display = 'none'
+        iconeMenu.style.display = 'block'
     }
 }
+
 
 function mostrarMenu(){
-    const menuUsuario = document.getElementsById('menuUsuario');
+    const listaMenuUsuario = document.getElementById('listaMenuUsuario');
 
-    if(menuUsuario.style.display == 'block'){
-        menuUsuario.style.display = 'none';
+    if(window.innerWidth < 768){
+        if(listaMenuUsuario.style.display == 'none'){
+            listaMenuUsuario.style.display = 'flex';
+        }else{
+            listaMenuUsuario.style.display = 'none';
+        }
     }else{
-        menuUsuario.style.display = 'block';
+        listaMenuUsuario.style.display = 'flex';
     }
+    
+
 }
+

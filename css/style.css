@@ -50,21 +50,21 @@ body{
     color: var(--dark);
 }
 
-#menuUsuario{
+#listaMenuUsuario{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 3rem;
 }
 
-#menuUsuario a{
+#listaMenuUsuario a{
     color: var(--dark);
     font-size: 17px;
     font-weight: 500;
     transition: all 0.5s;
 }
 
-#menuUsuario li a:hover{
+#listaMenuUsuario li a:hover{
     color: var(--orange);
 }
 
@@ -247,22 +247,16 @@ th:nth-child(4), td:nth-child(4) {
 
 /*---------------------------------------------*/
 
-@media screen and (max-width: 768px) {
+@media(max-width: 768px) {
     
-    .navegar{
-        display: flex;
-        flex-direction: column;
-    }
-
     #iconMenu{
+        cursor: pointer;
         display: block;
     }
 
-    #menuUsuario{
+    #listaMenuUsuario{
         display: none;
     }
-
-
 
     #estruturaContador{
         position: absolute;
