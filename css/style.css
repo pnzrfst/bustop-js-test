@@ -247,7 +247,17 @@ th:nth-child(4), td:nth-child(4) {
 
 /*---------------------------------------------*/
 
-@media(max-width: 768px) {
+@media(min-width: 0px) and (max-width: 768px){
+
+    *{
+        box-sizing: border-box
+    }
+    
+    .navegar{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
     
     #iconMenu{
         cursor: pointer;
@@ -268,5 +278,35 @@ th:nth-child(4), td:nth-child(4) {
 
     .infosTopo .userIcon {
         margin: 1rem; 
+    }
+
+    .relatorioInfos{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: absolute;
+        margin: 2rem 1rem 2rem 1rem;
+    }
+
+}
+
+/*-----------------------------------------*/
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    
+    .navegar {
+        display: flex;
+        flex-direction: row; 
+        gap: 8px;
+    }
+
+    #estruturaContador {
+        position: absolute;
+        top: 55%; 
+        transform: translate(-50%, -50%);
+    }
+
+    .relatorioInfos {
+        margin: 3rem 2rem; 
     }
 }
