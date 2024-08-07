@@ -247,7 +247,7 @@ th:nth-child(4), td:nth-child(4) {
 
 /*---------------------------------------------*/
 
-@media (max-width: 768px) {
+@media (max-width: 768px){
 
   
     * {
@@ -290,7 +290,7 @@ th:nth-child(4), td:nth-child(4) {
         margin: 2rem 1rem; 
         position: relative; 
         z-index: 0; 
-
+    }
     
     header {
         position: relative;
