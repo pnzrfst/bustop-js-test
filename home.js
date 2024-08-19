@@ -107,7 +107,7 @@ function criarEstruturaContador(){
                     <div class="infosTopo">
                             <div id="userIcons">
                                 <img src="./src/assets/images/user.png" alt="simbolo usado em imagens de usuario" width="auto" height="60px">
-                                <a href="#" id="setaFimDia" onclick="gerarRelatorioFimDia()">
+                                <a href="#" id="setaFimDiaLink" onclick="confirmaFimDia()">
                                     <img src="./src/assets/images/arrow.png" alt"seta para direita" width="auto" height="40px">
                                 </a>
                             </div>
@@ -141,6 +141,48 @@ function criarEstruturaContador(){
 }
 
 document.getElementById('criarEstrutura').addEventListener('click', criarEstruturaContador);
+document.getElementById('setaFimDiaLink').addEventListener('click', confirmaFimDia);
+
+//-- criando um span para confirmar com o user para ver se é isso mesmo que ele quer.//
+
+function confirmaFimDia(){
+
+    const gerarSpanConfirmar = `
+        <span id="spanFimDia">
+            <p>Deseja encerrar o processo? <br>
+            <strong>Atenção!</strong>,
+             essa ação é irreversível.
+            </p>
+            <button id="botaoFimDiaTrue" type="button" onclick="gerarRelatorioFimDia()">Confirmar</button>
+            <button id="botaoFimDiaFalse" type="button" onclick="ocultaSpanFimDia()">Cancelar</button>
+        </span>
+        `
+
+    let spanFimDia = document.getElementById('spanFimDia')
+    
+    if(!spanFimDia){
+        spanFimDia = document.createElement('div');
+        spanFimDia.id = 'spanFimDia';
+        spanFimDia.innerHTML = gerarSpanConfirmar;
+        document.getElementById('estruturaContador').appendChild(spanFimDia);
+    }
+
+    spanFimDia.style.display = 'block';
+
+    fimDoDia = true; 
+}
+
+function ocultaSpanFimDia() {
+    const spanFimDia = document.getElementById('spanFimDia');
+    if (spanFimDia) {
+        spanFimDia.style.display = 'none'; 
+    }
+    fimDoDia = false; 
+}
+
+
+
+//---------------------------------------------------------
 
 
 function gerarRelatorioFimDia(){
