@@ -103,11 +103,10 @@ function calcularVagasRestantes(){
 //criando estrutura do contador ao ''iniciar'' o dia.
 function criarEstruturaContador(){
     const gerarEstruturaContador = `
-
                     <div class="infosTopo">
                             <div id="userIcons">
                                 <img src="./src/assets/images/user.png" alt="simbolo usado em imagens de usuario" width="auto" height="60px">
-                                <a href="#" id="setaFimDiaLink" onclick="confirmaFimDia()">
+                                <a href="#" id="setaFimDiaLink" onclick="confirmarSpanFimDia()">
                                     <img src="./src/assets/images/arrow.png" alt"seta para direita" width="auto" height="40px">
                                 </a>
                             </div>
@@ -129,7 +128,7 @@ function criarEstruturaContador(){
                         <button id="botaoAcresc" type="button" onclick="acrescimoPassageiros()">Acrescentar passageiros</button>
                         <button id="botaoDecresc" type="button" onclick="decrescimoPassageiros()">Diminuir passageiros</button>
                     </div>`
-    const estruturaContador = document.getElementById('estruturaContador');
+    const estruturaContador = document.querySelector('.estruturaContador');
     
     estruturaContador.innerHTML += gerarEstruturaContador;
 
@@ -141,44 +140,58 @@ function criarEstruturaContador(){
 }
 
 document.getElementById('criarEstrutura').addEventListener('click', criarEstruturaContador);
-document.getElementById('setaFimDiaLink').addEventListener('click', confirmaFimDia);
+document.getElementById('setaFimDiaLink').addEventListener('click', confirmarSpanFimDia);
 
-//-- criando um span para confirmar com o user para ver se é isso mesmo que ele quer.//
+//-- criando um span para confirmar com o user se é isso mesmo que ele quer.//
 
-function confirmaFimDia(){
+function confirmarSpanFimDia(){
 
-    const gerarSpanConfirmar = `
-        <span id="spanFimDia">
+    const gerarSpan= `
+        <span class="estruturaSpanFimDia">
             <p>Deseja encerrar o processo? <br>
-            <strong>Atenção!</strong>,
+            <strong>Atenção!</strong>
              essa ação é irreversível.
             </p>
-            <button id="botaoFimDiaTrue" type="button" onclick="gerarRelatorioFimDia()">Confirmar</button>
-            <button id="botaoFimDiaFalse" type="button" onclick="ocultaSpanFimDia()">Cancelar</button>
+            <div class="span-btn">
+                <button class="botaoFimDiaTrue" type="button">Confirmar</button>
+                <button class="botaoFimDiaFalse" type="button">Cancelar</button>
+            </div>
+            
         </span>
         `
 
-    let spanFimDia = document.getElementById('spanFimDia')
+    let gerarSpanFimDia = document.querySelector('.estruturaSpanFimDia');
     
-    if(!spanFimDia){
-        spanFimDia = document.createElement('div');
-        spanFimDia.id = 'spanFimDia';
-        spanFimDia.innerHTML = gerarSpanConfirmar;
-        document.getElementById('estruturaContador').appendChild(spanFimDia);
+    if(!gerarSpanFimDia){
+        gerarSpanFimDia = document.createElement('div');
+        gerarSpanFimDia.className = 'estruturaSpanFimDia';
+        gerarSpanFimDia.innerHTML = gerarSpan;
+        document.querySelector('.confirmarFimDia').appendChild(gerarSpanFimDia);
     }
-
-    spanFimDia.style.display = 'block';
 
     fimDoDia = true; 
+
+    const botaoFimDiaTrue = document.querySelector('.botaoFimDiaTrue');
+    const botaoFimDiaFalse = document.querySelector('.botaoFimDiaFalse');
+
+    botaoFimDiaTrue.addEventListener('click', gerarRelatorioFimDia);
+    botaoFimDiaTrue.addEventListener('click', opcoesFimDoDia);
+    botaoFimDiaFalse.addEventListener('click', opcoesFimDoDia);
 }
 
-function ocultaSpanFimDia() {
-    const spanFimDia = document.getElementById('spanFimDia');
-    if (spanFimDia) {
-        spanFimDia.style.display = 'none'; 
+function opcoesFimDoDia() {
+    let spanFimDiaGerado = document.querySelector('.confirmarFimDia');
+
+    if (spanFimDiaGerado) {
+        spanFimDiaGerado.style.display = 'none'; 
+    }else{
+        confirmarSpanFimDia()
     }
+
+
     fimDoDia = false; 
 }
+
 
 
 
