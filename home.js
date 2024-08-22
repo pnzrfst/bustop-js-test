@@ -160,39 +160,35 @@ function confirmarSpanFimDia(){
         </span>
         `
 
-    let gerarSpanFimDia = document.querySelector('.estruturaSpanFimDia');
+    let guardaSpanFimDia = document.querySelector('.confirmarFimDia');
     
-    if(!gerarSpanFimDia){
-        gerarSpanFimDia = document.createElement('div');
-        gerarSpanFimDia.className = 'estruturaSpanFimDia';
-        gerarSpanFimDia.innerHTML = gerarSpan;
-        document.querySelector('.confirmarFimDia').appendChild(gerarSpanFimDia);
-    }
+    guardaSpanFimDia.innerHTML = gerarSpan
 
     fimDoDia = true; 
+
 
     const botaoFimDiaTrue = document.querySelector('.botaoFimDiaTrue');
     const botaoFimDiaFalse = document.querySelector('.botaoFimDiaFalse');
 
-    botaoFimDiaTrue.addEventListener('click', gerarRelatorioFimDia);
-    botaoFimDiaTrue.addEventListener('click', opcoesFimDoDia);
-    botaoFimDiaFalse.addEventListener('click', opcoesFimDoDia);
+    botaoFimDiaTrue.addEventListener('click', function(){
+        gerarRelatorioFimDia();
+        validarFimDoDia();
+    });
+
+    botaoFimDiaFalse.addEventListener('click', validarFimDoDia);
 }
 
-function opcoesFimDoDia() {
-    let spanFimDiaGerado = document.querySelector('.confirmarFimDia');
+function validarFimDoDia() {
+    let spanFimDiaGerado = document.querySelector('.estruturaSpanFimDia');
 
-    if (spanFimDiaGerado) {
+    if (spanFimDiaGerado){
         spanFimDiaGerado.style.display = 'none'; 
     }else{
         confirmarSpanFimDia()
     }
 
-
-    fimDoDia = false; 
+    fimDoDia = false;
 }
-
-
 
 
 //---------------------------------------------------------
