@@ -148,9 +148,10 @@ function confirmarSpanFimDia(){
 
     const gerarSpan= `
         <span class="estruturaSpanFimDia">
+            <img src="./src/assets/images/warning.png" alt="simbolo de aviso" width="auto" height="100px">
+            <strong>Atenção!</strong> <br>
             <p>Deseja encerrar o processo? <br>
-            <strong>Atenção!</strong>
-             essa ação é irreversível.
+               essa ação é irreversível.
             </p>
             <div class="span-btn">
                 <button class="botaoFimDiaTrue" type="button">Confirmar</button>
@@ -164,8 +165,6 @@ function confirmarSpanFimDia(){
     
     guardaSpanFimDia.innerHTML = gerarSpan
 
-    fimDoDia = true; 
-
 
     const botaoFimDiaTrue = document.querySelector('.botaoFimDiaTrue');
     const botaoFimDiaFalse = document.querySelector('.botaoFimDiaFalse');
@@ -173,6 +172,10 @@ function confirmarSpanFimDia(){
     botaoFimDiaTrue.addEventListener('click', function(){
         gerarRelatorioFimDia();
         validarFimDoDia();
+        let verificaContadorExiste = document.querySelector('.estruturaContador');
+        if(verificaContadorExiste){
+            verificaContadorExiste.style.display = 'none';
+        }
     });
 
     botaoFimDiaFalse.addEventListener('click', validarFimDoDia);
@@ -187,9 +190,7 @@ function validarFimDoDia() {
         confirmarSpanFimDia()
     }
 
-    fimDoDia = false;
 }
-
 
 //---------------------------------------------------------
 
