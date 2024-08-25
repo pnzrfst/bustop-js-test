@@ -1,6 +1,5 @@
 
 
-
 //variaveis arrecadacao
 const valorPassagem = 4.40;
 var totalArrecadado = 0.00;
@@ -170,7 +169,7 @@ function confirmarSpanFimDia(){
     const botaoFimDiaFalse = document.querySelector('.botaoFimDiaFalse');
 
     botaoFimDiaTrue.addEventListener('click', function(){
-        gerarRelatorioFimDia();
+        gerarTabela();
         validarFimDoDia();
         let verificaContadorExiste = document.querySelector('.estruturaContador');
         if(verificaContadorExiste){
@@ -195,68 +194,60 @@ function validarFimDoDia() {
 //---------------------------------------------------------
 
 
-function gerarRelatorioFimDia(){
-    const relatorioFimDia = `
-        <div class="relatorioInfos">
-            <table class="tabela" border="2">
-                    <thead>
-                            <tr>
-                                <th>Ganhos totais: (em R$)</th>
-                                <th>Total de passageiros: </th>
-                                <th>Vezes lotado: </th>
-                                <th>Vezes vazio: </th>
-                            </tr>
-                    </thead>       
+// function gerarRelatorioFimDia(){
+//     const relatorioFimDia = `
+//         <div class="relatorioInfos">
+//             <table class="tabela" border="2">
+//                     <thead>
+//                             <tr>
+//                                 <th>Ganhos totais: (em R$)</th>
+//                                 <th>Total de passageiros: </th>
+//                                 <th>Vezes lotado: </th>
+//                                 <th>Vezes vazio: </th>
+//                             </tr>
+//                     </thead>       
                     
-                    <tbody id="tabelaFimDia">
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                    </tbody>     
-            </table>
+//                     <tbody id="tabelaFimDia">
+//                                 <tr>
+//                                     <td></td>
+//                                     <td></td>
+//                                     <td></td>
+//                                     <td></td>
+//                                 </tr>
+//                     </tbody>     
+//             </table>
             
-        </div>`
+//         </div>`
 
-    const relatorioFimDoDia = document.getElementById('relatorioFimDoDia');
+//     const relatorioFimDoDia = document.getElementById('relatorioFimDoDia');
 
-    if(relatorioFimDoDia){
-        relatorioFimDoDia.innerHTML = relatorioFimDia;
-        gerarTabela();
-    }
-}
-    
+//     if(relatorioFimDoDia){
+//         relatorioFimDoDia.innerHTML = relatorioFimDia;
+//         gerarTabela();
+//     }
+// }
+
 function gerarTabela(){
-        const dadosTabela = {
-            ganhosTotais: totalArrecadado,
-            totalPassageiros: totalPassageiros,
-            esteveLotado: esteveLotado,
-            esteveVazio: esteveVazio
-        };
-
-        console.log(dadosTabela)
     
-        const tabelaFimDia = document.getElementById('tabelaFimDia');
-
-        if(tabelaFimDia){
-            const tr = tabelaFimDia.querySelector('tr');
-            
-            if(tr){
-                tr.children[0].textContent =  'R$' + dadosTabela.ganhosTotais.toFixed(2) 
-                tr.children[1].textContent = dadosTabela.totalPassageiros
-                tr.children[2].textContent = dadosTabela.esteveLotado
-                tr.children[3].textContent = dadosTabela.esteveVazio
-            }
-        }
-    
-       
+    var grafico = new CanvasJS.Chart('relatorioFimDoDia', {
+            title:{
+                text: "Relatório final:"
+            },
+            data: [
+                {
+                type : "column",
+                dataPoints: [
+                    {label: "Ganho total ", y: totalArrecadado},
+                    {label: "Total passageiros  ", y: totalPassageiros},
+                    {label: "Vezes lotado ", y: esteveLotado},
+                    {label: "Vezes vazio ", y: esteveVazio}
+                ]
+            }  
+            ]
+        });
+        
+        grafico.render();
 }
-
-document.getElementById('setaFimDia').addEventListener('click', gerarRelatorioFimDia);
-
-
 
 function verificarTamanhoPagina(){
     const iconeMenu = document.getElementById('iconMenu');
