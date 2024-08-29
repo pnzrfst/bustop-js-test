@@ -108,6 +108,23 @@ body{
     text-align: center;
 }
 
+@keyframes crescerBotaoIInicializar{
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.1);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+.inicializarContador button:hover{
+    animation: crescerBotao 0.3s ease;
+}
 
 .inicializarContador h1{
     font-size: 75px;
@@ -229,6 +246,25 @@ body{
     border-radius: 5px;
     margin: 2rem;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+@keyframes crescerBotao{
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.1);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+.estruturaSpanFimDia button:hover{
+    animation: crescerBotao 0.3s ease;
 }
 
 .botaoFimDiaTrue{
@@ -244,7 +280,7 @@ body{
 }
 
 .botaoFimDiaFalse:hover{
-    background-color: rgb(235, 65, 65);
+    background-color: rgb(235, 65, 65);  
 }
 
 /*--------------------------------------------------*/
