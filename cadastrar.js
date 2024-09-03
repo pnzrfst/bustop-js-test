@@ -16,4 +16,4 @@ const cadastrarUsuario = (dadosUsuario) => {
     setLocalStorage(db_usuarios);
 }
 
-const lerUsuarios = () => getLocalStorage()
+const lerUsuarios = () => getLocalStorage();
