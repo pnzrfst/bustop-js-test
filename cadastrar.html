@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="cadastrar.js"></script>
     <title>Bustop! | Login</title>
 
     <style>
@@ -10,11 +11,26 @@
             box-sizing: border-box;
         }
 
+        .telaDeCadastro{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .telaDeCadastro .campoUser{
+            margin: 5px;
+        }
 
+        .telaDeCadastro .campoSenha{
+            margin: 5px;
+
+        }
     </style>
 </head>
 <body>
-     <div class="telaDeCadastro">
+     <section class="telaDeCadastro">
          <form action="" id="formularioDeCadastro">
             <h1>Cadastre-se</h1>
             <div class="campoUser">
@@ -27,7 +43,7 @@
             </div>
             <button id="btn-login" type="submit">Login</button>
          </form>
-     </div>
-     <script src="cadastrar.js"></script>
+     </section>
+
 </body>
 </html>
