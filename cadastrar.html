@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="cadastrar.js"></script>
     <title>Bustop! | Login</title>
 
     <style>
@@ -31,19 +30,14 @@
 </head>
 <body>
      <section class="telaDeCadastro">
-         <form action="" id="formularioDeCadastro">
+         <form id="formularioDeCadastro">
             <h1>Cadastre-se</h1>
-            <div class="campoUser">
-                <label form="username">Usuario: </label>
-                <input type="text" name="username" id="usuario"> 
-            </div>
-            <div class="campoSenha">
-                <label form="password">Senha: </label>
-                <input type="password" name="password" id="senha">
-            </div>
-            <button id="btn-login" type="submit">Login</button>
+                <input type="text" placeholder="Digite seu email" id="usuario" required> 
+                <input type="password" placeholder="Digite sua senha" id="senha" required>
+                <button id="btn-login">Login</button>
          </form>
      </section>
 
+     <script src="cadastrar.js"></script>
 </body>
 </html>

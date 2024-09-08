@@ -1,16 +1,13 @@
 
-const login = document.getElementById('login');
-
-const dadosUsuario = {
-    usuario: "luiz",
-    senha: "atualizado"
-}; 
-
 // procura o db no navegador, senao cria um array vazio.
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db_usuarios')) ?? [];
 // envia para o navegador o array com as infos dos usuarios.
 const setLocalStorage = (db_usuarios) => localStorage.setItem('db_usuarios', JSON.stringify(db_usuarios));
 
+const dadosUsuario = {
+    usuario: document.getElementById('usuario').value,
+    senha: document.getElementById('senha').value
+}; 
 
 const cadastrarUsuario = (dadosUsuario) => {
     // pega o array ou o db ja existente
@@ -35,3 +32,42 @@ const apagarUsuario = (index) =>{
     setLocalStorage(db_usuarios);
 }
 
+
+//------------------------------
+const camposValidos = () => {
+    return document.getElementById('formularioDeCadastro').reportValidity()
+}
+
+const verificarCadastro = (dadosUsuario) =>{
+    const usuariosNoBanco = getLocalStorage();
+    for(var i = 0; i < usuariosNoBanco.length; i++){
+        if(dadosUsuario.usuario === usuariosNoBanco[i].usuario){
+            window.alert("usuario já cadastrado, verifique as informações!")
+            return true
+        }
+
+        window.alert("usuario cadastrado com sucesso!")
+        return false
+    }
+}
+
+
+const salvarNoBanco = () =>{
+    if(camposValidos()){
+        const dadosUsuario = {
+            usuario: document.getElementById('usuario').value,
+            senha: document.getElementById('senha').value
+        }; 
+        
+        
+        if(!verificarCadastro(dadosUsuario)){
+            cadastrarUsuario(dadosUsuario);
+            window.alert("usuario cadastrado com sucesso!")
+        }
+
+    }
+}
+
+document.getElementById('btn-login').addEventListener('click', () => {
+    salvarNoBanco();
+})
