@@ -42,13 +42,14 @@ const verificarCadastro = (dadosUsuario) =>{
     const usuariosNoBanco = getLocalStorage();
     for(var i = 0; i < usuariosNoBanco.length; i++){
         if(dadosUsuario.usuario === usuariosNoBanco[i].usuario){
-            window.alert("usuario já cadastrado, verifique as informações!")
+            window.alert("usuario já cadastrado, redirecionando")
+            window.location.href ='home.html';
             return true
         }
-
-        window.alert("usuario cadastrado com sucesso!")
-        return false
     }
+    
+    window.alert("usuario cadastrado com sucesso!")
+    return false
 }
 
 
@@ -68,6 +69,7 @@ const salvarNoBanco = () =>{
     }
 }
 
-document.getElementById('btn-login').addEventListener('click', () => {
+document.getElementById('btn-login').addEventListener('click', (event) => {
+    event.preventDefault()
     salvarNoBanco();
 })
